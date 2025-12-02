@@ -56,3 +56,17 @@ export function parseBigNumberToFloat(val: any, decimals = 18) {
   const parsed = parseFloat(formatted);
   return parsed;
 }
+
+export const formatCurrency = (value: number, compact: boolean = true): string => {
+  if (compact && value >= 1000000) {
+    return `$${(value / 1000000).toFixed(2)}M`;
+  } else if (compact && value >= 1000) {
+    return `$${(value / 1000).toFixed(2)}k`;
+  }
+  return `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+};
+
+export const formatPercent = (value: number): string => {
+  const sign = value >= 0 ? "+" : "";
+  return `${sign}${value.toFixed(2)}%`;
+};
