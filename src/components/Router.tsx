@@ -2,6 +2,7 @@ import React from "react";
 
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import Dashboard from "../views/Dashboard";
+import ExchangeDashboard from "../views/ExchangeDashboard";
 import Footer from "./Footer";
 import Header from "./Header";
 import GoogleLogin from "../views/GoogleLogin";
@@ -27,6 +28,7 @@ export function Routers() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/prediction" element={<Dashboard />} />
+        <Route path="/dashboard" element={<ExchangeDashboard />} />
 
         <Route
           path="/reset-password"
